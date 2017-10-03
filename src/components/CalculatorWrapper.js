@@ -2,14 +2,11 @@ require('../styles/styles.scss')
 
 import React from 'react'
 import { Provider, connect } from 'react-redux'
+import store from '../../redux/store'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import CalculatorSteps from './CalculatorSteps'
-
-import store from '../../redux/store'
-
-
 
 
 

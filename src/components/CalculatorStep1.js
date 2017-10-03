@@ -15,13 +15,9 @@ export default class CalculatorStep1 extends React.Component {
     constructor(props) {
         super(props)
 
-        // this.handleLocation = this.handleLocation.bind(this)
-        // this.teamSlider = this.teamSlider.bind(this)
-        // this.handleProjectPeriod = this.handleProjectPeriod.bind(this)
-
         this.state = {
             location: '',
-            peopleInTeam: null,
+            peopleInTeam: 1,
             projectPeriod: '',
             wantToStart: ''
         }
@@ -73,6 +69,22 @@ export default class CalculatorStep1 extends React.Component {
     }
 
 
+    componentWillMount() {
+        if( store.getState() ) {
+            var storeState = store.getState()
+            storeState = storeState[storeState.length - 1]
+
+            // this.setState(storeState)
+            // console.log(storeState)
+            this.setState(storeState.formData)
+            // for(var key in storeState.formData) {
+            //     this.setState({
+            //         key: storeState.formData[key]
+            //     })
+            // }
+        }
+    }
+
 
     render() {
         return (
@@ -102,6 +114,7 @@ export default class CalculatorStep1 extends React.Component {
                         min={1}
                         max={40}
                         onChange={this.teamSlider.bind(this)}
+                        value={this.state.peopleInTeam}
                     />
                 </div>
 
@@ -113,6 +126,7 @@ export default class CalculatorStep1 extends React.Component {
                         value={this.state.projectPeriod}
                         onChange={this.handleProjectPeriod.bind(this)}
                         className="field-select"
+                        value={this.state.projectPeriod}
                     >
 
                         <MenuItem value={1} primaryText="Less than 3 month" />
@@ -127,6 +141,7 @@ export default class CalculatorStep1 extends React.Component {
                     <RadioButtonGroup
                         name="wantToStart"
                         onChange={this.handleWantToStart.bind(this)}
+                        valueSelected={this.state.wantToStart}
                     >
                         <RadioButton
                             value="less_3_month"
