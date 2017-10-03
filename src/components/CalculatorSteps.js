@@ -1,6 +1,10 @@
 import React from 'react'
 
 
+
+import CalculatorStep1 from './CalculatorStep1'
+import CalculatorStep2 from './CalculatorStep2'
+
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
 import {
@@ -12,40 +16,38 @@ import ArrowForwardIcon from 'material-ui/svg-icons/navigation/arrow-forward'
 
 
 
+
 export default class CalculatorSteps extends React.Component {
 	constructor(props) {
-		super(props);
+		super(props)
 
-		this.handleNext = this.handleNext.bind(this);
-		this.handlePrev = this.handlePrev.bind(this);
+		this.handleNext = this.handleNext.bind(this)
+		this.handlePrev = this.handlePrev.bind(this)
 
 		this.state = {
 			stepIndex: 0
 		}
 	}
 
+
 	getStepContent(stepIndex) {
 		switch (stepIndex) {
 			case 0:
-			return (
-				<p>
-				{'step 1'}
-				</p>
-				);
+				return (
+					<CalculatorStep1 />
+				)
 
 			case 1:
-			return (
-				<p>
-				{'step 2'}
-				</p>
-				);
+				return (
+					<CalculatorStep2 />
+				)
 
 			case 2:
-			return (
-				<p>
-				{'step 3'}
-				</p>
-				);
+				return (
+					<p>
+					{'step 3'}
+					</p>
+				)
 		}
 	}
 

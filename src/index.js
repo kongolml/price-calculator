@@ -1,19 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
-import CalculatorWrapper from './components/CalculatorWrapper.jsx'
+import CalculatorWrapper from './components/CalculatorWrapper'
 
 
-const App = () => (
-  <MuiThemeProvider>
-    <CalculatorWrapper />
-  </MuiThemeProvider>
-);
+import { Provider } from 'react-redux'
+import store from '../redux/store'
+
 
 
 ReactDOM.render(
-    <App />,
+    <Provider store={store}>
+        <CalculatorWrapper />
+    </Provider>,
     document.getElementById('root')
-);
+)
