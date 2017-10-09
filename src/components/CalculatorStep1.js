@@ -103,6 +103,7 @@ export default class CalculatorStep1 extends React.Component {
                         max={40}
                         onChange={this.teamSlider.bind(this)}
                         value={this.state.peopleInTeam}
+                        // sliderStyle={{ backgroundColor: 'red' }}
                     />
                 </div>
 

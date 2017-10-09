@@ -1,9 +1,8 @@
-import { setProjectInfo, setDevelopersInfo } from './action'
+import { setProjectInfo, setDevelopersInfo, setClientEmail } from './action'
 import { combineReducers } from 'redux'
 
 const initialState = {
     projectInfo: {},
-    developers: [],
     clientEmail: ''
 }
 
@@ -21,13 +20,24 @@ function modifyStore(state = initialState, action) {
 
         case setDevelopersInfo:
             return Object.assign({}, state, {
-                developers: [
+                ['developer-' + action.index]: [
+                    ...state,
+                    action.data
+                ]
+            })
+
+
+        case setClientEmail:
+            return Object.assign({}, state, {
+                clientEmail: [
                     ...state,
                     action.data
                 ]
             })
     }
 }
+
+
 
 
 

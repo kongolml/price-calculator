@@ -5,10 +5,18 @@ import { Provider, connect } from 'react-redux'
 import store from '../../redux/store'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 import CalculatorSteps from './CalculatorSteps'
 
-
+const muiTheme = getMuiTheme({
+  slider: {
+    selectionColor: 'linear-gradient(to right, #1e5799 0%,#7db9e8 100%)',
+    handleFillColor: 'green',
+    trackColor: '#d8d8d8',
+    trackSize: 4
+  }
+});
 
 
 function mapStateToProps(state) {
@@ -35,7 +43,7 @@ class CalculatorWrapper extends React.Component {
         return(
             <div className="calculator-wrapper">
                 <h1 className="on-center">Spend few minutes on making your perfect team, we will do the rest!</h1>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={muiTheme}>
                     <CalculatorSteps />
                 </MuiThemeProvider>
             </div>

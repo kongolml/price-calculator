@@ -4,6 +4,7 @@ import React from 'react'
 
 import CalculatorStep1 from './CalculatorStep1'
 import CalculatorStep2 from './CalculatorStep2'
+import CalculatorStep3 from './CalculatorStep3'
 
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -44,9 +45,7 @@ export default class CalculatorSteps extends React.Component {
 
 			case 2:
 				return (
-					<p>
-					{'step 3'}
-					</p>
+					<CalculatorStep3 />
 				)
 		}
 	}

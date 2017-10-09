@@ -5,7 +5,7 @@ import MenuItem from 'material-ui/MenuItem'
 
 
 import store from '../../redux/store'
-import { updateProjectInfo, updateDevelopersInfo } from '../../redux/action'
+import { updateDevelopersInfo } from '../../redux/action'
 
 
 
@@ -28,7 +28,7 @@ class Developer extends React.Component {
         })
 
         setTimeout(() => {
-            store.dispatch(updateDevelopersInfo(this.state))
+            store.dispatch(updateDevelopersInfo(this.state, this.state.developerID))
         }, 500)
     }
 
@@ -38,7 +38,7 @@ class Developer extends React.Component {
         })
 
         setTimeout(() => {
-            store.dispatch(updateDevelopersInfo(this.state))
+            store.dispatch(updateDevelopersInfo(this.state, this.state.developerID))
         }, 500)
     }
 
@@ -48,7 +48,7 @@ class Developer extends React.Component {
         })
 
         setTimeout(() => {
-            store.dispatch(updateDevelopersInfo(this.state))
+            store.dispatch(updateDevelopersInfo(this.state, this.state.developerID))
         }, 500)
     }
 
@@ -88,6 +88,7 @@ class Developer extends React.Component {
                         onChange={this.handleDeveloperType.bind(this)}
                         value={this.state.type}
                         multiple={true}
+                        developerid={this.props.id}
                     >
                         <MenuItem value="type-1" primaryText="Type 1" />
                         <MenuItem value="type-2" primaryText="Type 2" />
@@ -103,6 +104,7 @@ class Developer extends React.Component {
                         onChange={this.handleDeveloperSkill.bind(this)}
                         value={this.state.skill}
                         multiple={true}
+                        developerid={this.props.id}
                     >
                         <MenuItem value="skill-1" primaryText="Skill 1" />
                         <MenuItem value="skill-2" primaryText="Skill 2" />
@@ -149,7 +151,7 @@ export default class CalculatorStep2 extends React.Component {
     render() {
         var developersAdded = []
         for(var i=0; i<this.state.peopleNeeded; i++) {
-            developersAdded.push(<Developer key={'developer-' + i} developerid={'developer-' + i} />)
+            developersAdded.push(<Developer key={'developer-' + i} developerid={i} />)
         }
 
         return (
