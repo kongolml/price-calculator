@@ -8,7 +8,7 @@ import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
 
 
 import store from '../../redux/store'
-import updateStore from '../../redux/action'
+import { updateProjectInfo } from '../../redux/action'
 
 
 export default class CalculatorStep1 extends React.Component {
@@ -29,9 +29,8 @@ export default class CalculatorStep1 extends React.Component {
         })
 
         setTimeout(() => {
-            // update store:
-            store.dispatch(updateStore(this.state))
-        }, 1000)
+            store.dispatch(updateProjectInfo(this.state))
+        }, 500)
     }
 
     teamSlider(event, value) {
@@ -40,9 +39,8 @@ export default class CalculatorStep1 extends React.Component {
         })
 
         setTimeout(() => {
-            // update store:
-            store.dispatch(updateStore(this.state))
-        }, 1000)
+            store.dispatch(updateProjectInfo(this.state))
+        }, 500)
     }
 
     handleProjectPeriod(event, index, value) {
@@ -51,9 +49,8 @@ export default class CalculatorStep1 extends React.Component {
         })
 
         setTimeout(() => {
-            // update store:
-            store.dispatch(updateStore(this.state))
-        }, 1000)
+            store.dispatch(updateProjectInfo(this.state))
+        }, 500)
     }
 
     handleWantToStart(event, value) {
@@ -62,26 +59,17 @@ export default class CalculatorStep1 extends React.Component {
         })
 
         setTimeout(() => {
-            // update store:
-            store.dispatch(updateStore(this.state))
-        }, 1000)
+            store.dispatch(updateProjectInfo(this.state))
+        }, 500)
         
     }
 
 
     componentWillMount() {
         if( store.getState() ) {
-            var storeState = store.getState()
-            storeState = storeState[storeState.length - 1]
+            var latestStore = store.getState().projectInfo[store.getState().projectInfo.length - 1]
 
-            // this.setState(storeState)
-            // console.log(storeState)
-            this.setState(storeState.formData)
-            // for(var key in storeState.formData) {
-            //     this.setState({
-            //         key: storeState.formData[key]
-            //     })
-            // }
+            this.setState(latestStore)
         }
     }
 
@@ -129,9 +117,9 @@ export default class CalculatorStep1 extends React.Component {
                         value={this.state.projectPeriod}
                     >
 
-                        <MenuItem value={1} primaryText="Less than 3 month" />
-                        <MenuItem value={2} primaryText="More than 3 month" />
-                        <MenuItem value={3} primaryText="Don't know yet" />
+                        <MenuItem value="less_3_month" primaryText="Less than 3 month" />
+                        <MenuItem value="more_3_month" primaryText="More than 3 month" />
+                        <MenuItem value="unknown_yet" primaryText="Don't know yet" />
                     </SelectField>
                 </div>
 

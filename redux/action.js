@@ -1,12 +1,18 @@
-export const setFormData = 'setFormData'
+export const setProjectInfo = 'SET_PROJECT_INFO'
+export const setDevelopersInfo = 'SET_DEVELOPERS_INFO'
 
 
-function updateStore(location) {
+export function updateProjectInfo(data) {
     return {
-        type: setFormData,
-        location
+        type: setProjectInfo,
+        data
     }
 }
 
 
-export default updateStore
+export function updateDevelopersInfo(data) {
+    return {
+        type: setDevelopersInfo,
+        data
+    }
+}
