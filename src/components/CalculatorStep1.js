@@ -109,7 +109,7 @@ export default class CalculatorStep1 extends React.Component {
 
 
                 <div className="field-group">
-                    <label htmlFor="location-slider">Number of people in the team: 1-40</label>
+                    <label htmlFor="location-slider">Number of people in the team: {this.state.peopleInTeam}</label>
 
                     <Slider
                         name="location-slider"

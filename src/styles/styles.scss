@@ -104,12 +104,15 @@ body {
     transform: translateY(16px);
     // margin-right: 1px;
     outline: none !important;
+    display: none;
 }
 
 
 
 
-
+table, th, td {
+   border: 1px solid black;
+}
 
 
 
