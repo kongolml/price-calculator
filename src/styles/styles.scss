@@ -20,3 +20,86 @@
     display: flex;
     align-items: center;
 }
+
+
+.custom-slider {
+    & > div {
+        margin-bottom: 10px !important;
+
+        & > div {
+            & > div:first-child {
+                background: linear-gradient(to right, #339deb 0%,#0e2569 100%);
+            }
+        }
+    }
+}
+
+.slider-vals-wrp {
+    justify-content: space-between;
+}
+
+
+body {
+    background-color: transparentize(red, 0.9)
+}
+
+.step-description-wrp {
+    @media (min-width: 768px) {
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+    }
+
+    .step-description {
+        background: linear-gradient(to bottom, #339deb 0%,#0e266a 100%);
+        padding: 15px;
+
+        p {
+            color: white;
+
+            &.title {
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+.calculator {
+    box-shadow: 10px 10px 17px -5px rgba(0,0,0,0.25);
+    border-radius: 1px;
+    padding: 0 15px 0;
+
+    & > .row {
+        @media (min-width: 768px) {
+            display: flex;
+        }
+    }
+}
+
+
+
+
+.nextStep, .prevStep {
+    color: white;
+    border: 2px solid #23d438;
+    background-color: #23d438;
+    padding: 4px 8px;
+    width: 100%;
+    margin-bottom: 15px;
+    outline: none !important;
+}
+
+
+.prevStep {
+    border-color: white;
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+
+

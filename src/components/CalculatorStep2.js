@@ -55,7 +55,7 @@ class Developer extends React.Component {
 
     render() {
         return (
-            <div className="row">
+            <div className="row" style={{marginTop: '15px'}}>
                 <div className="group-item col-xs-12 col-sm-4">
                     <p className="field-label">Level</p>
 
@@ -64,6 +64,8 @@ class Developer extends React.Component {
                         onChange={this.handleDeveloperLevel.bind(this)}
                         value={this.state.level}
                         developerid={this.props.id}
+                        underlineStyle={{borderColor: 'black'}}
+                        iconStyle={{fill: '#1b75bc'}}
                     >
                         <MenuItem
                             value="level-1"
@@ -89,6 +91,8 @@ class Developer extends React.Component {
                         value={this.state.type}
                         multiple={true}
                         developerid={this.props.id}
+                        underlineStyle={{borderColor: 'black'}}
+                        iconStyle={{fill: '#1b75bc'}}
                     >
                         <MenuItem value="type-1" primaryText="Type 1" />
                         <MenuItem value="type-2" primaryText="Type 2" />
@@ -105,6 +109,8 @@ class Developer extends React.Component {
                         value={this.state.skill}
                         multiple={true}
                         developerid={this.props.id}
+                        underlineStyle={{borderColor: 'black'}}
+                        iconStyle={{fill: '#1b75bc'}}
                     >
                         <MenuItem value="skill-1" primaryText="Skill 1" />
                         <MenuItem value="skill-2" primaryText="Skill 2" />
@@ -155,7 +161,7 @@ export default class CalculatorStep2 extends React.Component {
         }
 
         return (
-            <div>
+            <div style={{maxHeight: '500px', overflowY: 'auto', overflowX: 'hidden'}}>
                 {
                     developersAdded.map(function(developer, index) {
                         return developer

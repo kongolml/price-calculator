@@ -10,12 +10,19 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import CalculatorSteps from './CalculatorSteps'
 
 const muiTheme = getMuiTheme({
-  slider: {
-    selectionColor: 'linear-gradient(to right, #1e5799 0%,#7db9e8 100%)',
-    handleFillColor: 'green',
-    trackColor: '#d8d8d8',
-    trackSize: 4
-  }
+    slider: {
+        handleFillColor: '#1b75bc',
+        trackColor: '#d8d8d8',
+        trackColorSelected: '#d8d8d8',
+        trackSize: 4,
+        handleSize: 12,
+        handleColorZero: '#f3f3f4',
+        selectionColor: '#1b75bc'
+    },
+    radioButton: {
+        borderColor: 'black',
+        checkedColor: '#1b75bc',
+    }
 });
 
 
@@ -42,10 +49,15 @@ class CalculatorWrapper extends React.Component {
     render() {
         return(
             <div className="calculator-wrapper">
-                <h1 className="on-center">Spend few minutes on making your perfect team, we will do the rest!</h1>
-                <MuiThemeProvider muiTheme={muiTheme}>
-                    <CalculatorSteps />
-                </MuiThemeProvider>
+                <div className="container">
+                    <div className="col-xs-12 col-sm-10 col-sm-offset-1">
+                        <h1 className="on-center">Spend few minutes on making your perfect team, we will do the rest!</h1>
+
+                        <MuiThemeProvider muiTheme={muiTheme}>
+                            <CalculatorSteps />
+                        </MuiThemeProvider>
+                    </div>
+                </div>
             </div>
         )
     }

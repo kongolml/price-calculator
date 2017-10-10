@@ -40,7 +40,7 @@ export default class CalculatorStep3 extends React.Component {
     render() {
         return (
             <div className="row">
-                <div className="field-group">
+                <div className="field-group" style={{paddingLeft: '15px', paddingRight: '15px'}}>
                     <p className="field-label">Please enter your email address </p>
 
                     <TextField
