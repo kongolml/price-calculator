@@ -2,6 +2,7 @@ import React from 'react'
 
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
+import ActionDone from 'material-ui/svg-icons/action/done'
 
 
 import store from '../../redux/store'
@@ -18,6 +19,18 @@ class Developer extends React.Component {
             "level": null,
             "type": null,
             "skill": null
+        }
+    }
+
+    componentWillMount() {
+        var storage = store.getState()
+        var developerInStorage = 'developer-' + this.props.developerid
+
+        if( storage ) {
+            if( developerInStorage in storage ) {
+                var developerInfoFromStorage = storage[developerInStorage][0]
+                this.setState(developerInfoFromStorage)
+            }
         }
     }
 
@@ -53,11 +66,12 @@ class Developer extends React.Component {
     }
 
 
+
     render() {
         return (
             <div className="row" style={{marginTop: '15px'}}>
                 <div className="group-item col-xs-12 col-sm-4">
-                    <p className="field-label">Level</p>
+                    <p className="field-label">Level *</p>
 
                     <SelectField
                         style={{maxWidth: '100%'}}
@@ -97,6 +111,11 @@ class Developer extends React.Component {
                         <MenuItem value="type-1" primaryText="Type 1" />
                         <MenuItem value="type-2" primaryText="Type 2" />
                         <MenuItem value="type-3" primaryText="Type 3" />
+
+                        <button className="multiselect-confirm">
+                            <ActionDone color={'white'} />
+                        </button>
+
                     </SelectField>
                 </div>
 
@@ -115,6 +134,11 @@ class Developer extends React.Component {
                         <MenuItem value="skill-1" primaryText="Skill 1" />
                         <MenuItem value="skill-2" primaryText="Skill 2" />
                         <MenuItem value="skill-3" primaryText="Skill 3" />
+
+                        <button className="multiselect-confirm">
+                            <ActionDone color={'white'} />
+                        </button>
+
                     </SelectField>
                 </div>
             </div>
@@ -138,17 +162,19 @@ export default class CalculatorStep2 extends React.Component {
             var developers = [],
                 latestStore = store.getState().projectInfo[store.getState().projectInfo.length - 1]
 
-            for(var i=0; i<latestStore.peopleInTeam; i++) {
-                developers.push({
-                    "level": null,
-                    "type": null,
-                    "skill": null
-                })
-            }
+            if( latestStore != null ) {
+                for(var i=0; i<latestStore.peopleInTeam; i++) {
+                    developers.push({
+                        "level": null,
+                        "type": null,
+                        "skill": null
+                    })
+                }
 
-            this.setState({
-                peopleNeeded: latestStore.peopleInTeam
-            })
+                this.setState({
+                    peopleNeeded: latestStore.peopleInTeam
+                })
+            }            
         }
     }
 

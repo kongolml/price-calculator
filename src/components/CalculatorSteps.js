@@ -130,7 +130,7 @@ export default class CalculatorSteps extends React.Component {
 						<div className="step-description">
 							{this.getStepDescription(stepIndex)}
 
-							<div style={{marginTop: 24, marginBottom: 12}}>
+							<div style={{marginTop: 50, marginBottom: 12}}>
 								<button
 									className="nextStep"
 									onClick={this.handleNext}

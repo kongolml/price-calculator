@@ -20,8 +20,18 @@ export default class CalculatorStep3 extends React.Component {
 
     componentWillMount() {
         if( store.getState() ) {
+            var email
+
+            if( store.getState()['clientEmail'] == "" ) {
+                email = ""
+            } else {
+                email = store.getState()['clientEmail'][0].clientEmail
+            }
+
+            console.log(email)
+
             this.setState({
-                // clientEmail: store.getState().clientEmail[0].clientEmail
+                clientEmail: email
             })
         }
     }
