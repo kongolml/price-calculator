@@ -57,17 +57,6 @@ class CalculatorWrapper extends React.Component {
                             <CalculatorSteps />
                         </MuiThemeProvider>
 
-                        <div className="result hidden">
-<table>
-    <tbody>
-        <tr>
-            <th>1</th>
-            <th>2</th>
-        </tr>
-    </tbody>
-</table>
-                        </div>
-
                     </div>
                 </div>
             </div>

@@ -147,9 +147,9 @@ export default class CalculatorStep1 extends React.Component {
                         iconStyle={{fill: '#1b75bc'}}
                     >
 
-                        <MenuItem value="less_3_month" primaryText="Less than 3 month" />
-                        <MenuItem value="more_3_month" primaryText="More than 3 month" />
-                        <MenuItem value="unknown_yet" primaryText="Don't know yet" />
+                        <MenuItem value="Less than 3 month" primaryText="Less than 3 month" />
+                        <MenuItem value="More than 3 month" primaryText="More than 3 month" />
+                        <MenuItem value="Don't know yet" primaryText="Don't know yet" />
                     </SelectField>
                 </div>
 
@@ -162,19 +162,19 @@ export default class CalculatorStep1 extends React.Component {
                         valueSelected={this.state.wantToStart}
                     >
                         <RadioButton
-                            value="less_3_month"
+                            value="Less than 3 month"
                             label="Less than 3 month"
                             style={{ display: 'inline-block', width: '200px' }}
                             checkedIcon={<AvFiberManualRecord />}
                         />
                         <RadioButton
-                            value="more_3_month"
+                            value="More than 3 month"
                             label="More than 3 month"
                             style={{ display: 'inline-block', width: '200px' }}
                             checkedIcon={<AvFiberManualRecord />}
                         />
                         <RadioButton
-                            value="unknown_yet"
+                            value="Don't know yet"
                             label="Don't know yet"
                             style={{ display: 'inline-block', width: '200px' }}
                             checkedIcon={<AvFiberManualRecord />}

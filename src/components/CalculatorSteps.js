@@ -5,6 +5,7 @@ import React from 'react'
 import CalculatorStep1 from './CalculatorStep1'
 import CalculatorStep2 from './CalculatorStep2'
 import CalculatorStep3 from './CalculatorStep3'
+import FinalStep from './FinalStep'
 
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -12,6 +13,7 @@ import {
 	Step,
 	Stepper,
 	StepLabel,
+	StepButton
 } from 'material-ui/Stepper'
 import NavigationChevronRight from 'material-ui/svg-icons/navigation/chevron-right'
 
@@ -89,6 +91,8 @@ export default class CalculatorSteps extends React.Component {
 
 		if (stepIndex < 2) {
 			this.setState({stepIndex: stepIndex + 1});
+		} else if( stepIndex === 2 ) {
+			this.setState({stepIndex: 3});
 		}
 	}
 
@@ -100,26 +104,30 @@ export default class CalculatorSteps extends React.Component {
 		}
 	}
 
-	render() {
+	renderCalculator() {
 		const {stepIndex} = this.state;
-
-		return (
-			<div style={{width: '100%', margin: 'auto', backgroundColor: 'white'}} className="calculator">
-
+		
+		if( stepIndex < 3 ) {
+			return (
 				<div className="row">
 					<div className="col-xs-12 col-sm-9">
-
-						<Stepper activeStep={stepIndex} connector={<NavigationChevronRight />} style={{backgroundColor: '#f6fafd', marginLeft: '-15px', marginRight: '-15px'}}>
+						<Stepper linear={false} activeStep={stepIndex} connector={<NavigationChevronRight color="#1b75bc" />} style={{backgroundColor: '#f6fafd', marginLeft: '-15px', marginRight: '-15px'}}>
 							<Step>
-								<StepLabel iconContainerStyle={{display: 'none'}} style={{textTransform: 'uppercase'}}>Configurate project</StepLabel>
+								<StepButton onClick={() => this.setState({stepIndex: 0})}>
+									<StepLabel iconContainerStyle={{display: 'none'}} style={{textTransform: 'uppercase'}}>Configurate project</StepLabel>
+								</StepButton>
 							</Step>
 
 							<Step>
-								<StepLabel iconContainerStyle={{display: 'none'}} style={{textTransform: 'uppercase'}}>Build the team</StepLabel>
+								<StepButton onClick={() => this.setState({stepIndex: 1})}>
+									<StepLabel iconContainerStyle={{display: 'none'}} style={{textTransform: 'uppercase'}}>Build the team</StepLabel>
+								</StepButton>
 							</Step>
 
 							<Step>
-								<StepLabel iconContainerStyle={{display: 'none'}} style={{textTransform: 'uppercase'}}>Get a price!</StepLabel>
+								<StepButton onClick={() => this.setState({stepIndex: 2})}>
+									<StepLabel iconContainerStyle={{display: 'none'}} style={{textTransform: 'uppercase'}}>Get a price!</StepLabel>
+								</StepButton>
 							</Step>
 						</Stepper>
 
@@ -140,12 +148,23 @@ export default class CalculatorSteps extends React.Component {
 									onClick={this.handlePrev}
 								>{stepIndex >= 1 ? 'Previous step' : 'I don\'t have time'}</button>
 							</div>
-
 						</div>
 					</div>
-
 				</div>
+			)
+		} else {
+			return (
+				<FinalStep />
+			)
+		}
+	}
+
+
+	render() {
+		return (
+			<div style={{width: '100%', margin: 'auto', backgroundColor: 'white'}} className="calculator">
+				{ this.renderCalculator() }
 			</div>
-			);
+		)
 	}
 }
