@@ -89,10 +89,20 @@ body {
     outline: none !important;
 }
 
+.nextStep {
+    &:hover, &:active, &:focus {
+        background-color: #27bd39;
+        border-color: #27bd39;
+    }
+}
 
 .prevStep {
     border-color: white;
     background-color: transparent;
+
+    &:hover, &:active, &:focus {
+        background: transparent;
+    }
 }
 
 .multiselect-confirm {
@@ -107,7 +117,13 @@ body {
     display: none;
 }
 
-
+.final-result {
+    min-height: 570px;
+    max-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 

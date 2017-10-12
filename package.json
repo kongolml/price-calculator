@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/kongolml/price-calculator#readme",
   "dependencies": {
+    "country-list": "^1.1.0",
     "material-ui": "^0.19.3",
     "material-ui-slider-label": "git+https://github.com/tariqwest/material-ui-slider-label.git",
     "react": "^16.0.0",

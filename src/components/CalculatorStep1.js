@@ -13,6 +13,9 @@ import AvFiberManualRecord from 'material-ui/svg-icons/av/fiber-manual-record'
 import store from '../../redux/store'
 import { updateProjectInfo } from '../../redux/action'
 
+var countries = require('country-list')();
+var countriesList = countries.getNames()
+
 
 const sliderStyles = {
   subheader: {
@@ -101,9 +104,13 @@ export default class CalculatorStep1 extends React.Component {
                         underlineStyle={{borderColor: 'black'}}
                         iconStyle={{fill: '#1b75bc'}}
                     >
-                        <MenuItem value="Ukraine" primaryText="Ukraine" />
-                        <MenuItem value="Poland" primaryText="Poland" />
-                        <MenuItem value="Spain" primaryText="Spain" />
+                        {
+                            countriesList.map((country, index) => {
+                                return (
+                                    <MenuItem key={index} value={country} primaryText={country} />
+                                )
+                            })
+                        }
                     </SelectField>
                 </div>
 

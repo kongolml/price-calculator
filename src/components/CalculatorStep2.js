@@ -81,18 +81,19 @@ class Developer extends React.Component {
                         underlineStyle={{borderColor: 'black'}}
                         iconStyle={{fill: '#1b75bc'}}
                     >
-                        <MenuItem
-                            value="level-1"
-                            primaryText="Level 1"
-                        />
-                        <MenuItem
-                            value="level-2"
-                            primaryText="Level 2"
-                        />
-                        <MenuItem 
-                            value="level-3"
-                            primaryText="Level 3"
-                        />
+                        {
+                            window.priceCalculatorData &&
+
+                                window.priceCalculatorData.levels.map((level, index) => {
+                                    return (
+                                        <MenuItem 
+                                            key={index}
+                                            value={level}
+                                            primaryText={level}
+                                        />
+                                    )
+                                })
+                        }
                     </SelectField>
                 </div>
 
@@ -108,9 +109,19 @@ class Developer extends React.Component {
                         underlineStyle={{borderColor: 'black'}}
                         iconStyle={{fill: '#1b75bc'}}
                     >
-                        <MenuItem value="type-1" primaryText="Type 1" />
-                        <MenuItem value="type-2" primaryText="Type 2" />
-                        <MenuItem value="type-3" primaryText="Type 3" />
+                        {
+                            window.priceCalculatorData &&
+
+                                window.priceCalculatorData.types.map((type, index) => {
+                                    return (
+                                        <MenuItem 
+                                            key={index}
+                                            value={type}
+                                            primaryText={type}
+                                        />
+                                    )
+                                })
+                        }
 
                         <button className="multiselect-confirm">
                             <ActionDone color={'white'} />
@@ -131,9 +142,19 @@ class Developer extends React.Component {
                         underlineStyle={{borderColor: 'black'}}
                         iconStyle={{fill: '#1b75bc'}}
                     >
-                        <MenuItem value="skill-1" primaryText="Skill 1" />
-                        <MenuItem value="skill-2" primaryText="Skill 2" />
-                        <MenuItem value="skill-3" primaryText="Skill 3" />
+                        {
+                            window.priceCalculatorData &&
+
+                                window.priceCalculatorData.skills.map((skill, index) => {
+                                    return (
+                                        <MenuItem 
+                                            key={index}
+                                            value={skill}
+                                            primaryText={skill}
+                                        />
+                                    )
+                                })
+                        }
 
                         <button className="multiselect-confirm">
                             <ActionDone color={'white'} />
