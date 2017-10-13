@@ -1,6 +1,8 @@
 ### Introduction
 This is price calculator plugin for Wordpress. Works as `shortcode` with options, allowing you to adjust fields.
 
+![Price calculator](https://raw.githubusercontent.com/kongolml/price-calculator/master/screenshot.png)
+
 ### Dependencies
 * [React.js](https://facebook.github.io/react/)
 * [Material-UI](http://www.material-ui.com/)
