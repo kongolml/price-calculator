@@ -22,6 +22,7 @@ class Developer extends React.Component {
         }
     }
 
+
     componentWillMount() {
         var storage = store.getState()
         var developerInStorage = 'developer-' + this.props.developerid
@@ -34,6 +35,7 @@ class Developer extends React.Component {
         }
     }
 
+
     handleDeveloperLevel(event, index, value) {
         this.setState({
             level: value,
@@ -45,6 +47,7 @@ class Developer extends React.Component {
         }, 500)
     }
 
+
     handleDeveloperType(event, index, value) {
         this.setState({
             type: value
@@ -54,6 +57,7 @@ class Developer extends React.Component {
             store.dispatch(updateDevelopersInfo(this.state, this.state.developerID))
         }, 500)
     }
+
 
     handleDeveloperSkill(event, index, value) {
         this.setState({
@@ -177,6 +181,7 @@ export default class CalculatorStep2 extends React.Component {
             peopleNeeded: 1
         }
     }
+    
 
     componentWillMount() {
         if( store.getState() ) {

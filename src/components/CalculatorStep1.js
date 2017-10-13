@@ -4,7 +4,6 @@ import React from 'react'
 import SelectField from 'material-ui/SelectField'
 import MenuItem from 'material-ui/MenuItem'
 import Slider from 'material-ui/Slider'
-// import Slider from 'material-ui-slider-label/Slider';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton'
 
 import AvFiberManualRecord from 'material-ui/svg-icons/av/fiber-manual-record'
@@ -17,16 +16,6 @@ var countries = require('country-list')();
 var countriesList = countries.getNames()
 
 
-const sliderStyles = {
-  subheader: {
-    textTransform: 'capitalize',
-  },
-  labelStyleInner: {
-    color: '#1b75bc',
-    fontWeight: 'bold',
-    positino: 'absolute'
-  },
-};
 
 export default class CalculatorStep1 extends React.Component {
     constructor(props) {
@@ -40,6 +29,7 @@ export default class CalculatorStep1 extends React.Component {
         }
     }
 
+
     handleLocation(event, index, value) {
         this.setState({
             location: value
@@ -49,6 +39,7 @@ export default class CalculatorStep1 extends React.Component {
             store.dispatch(updateProjectInfo(this.state))
         }, 500)
     }
+
 
     teamSlider(event, value) {
         this.setState({
@@ -60,6 +51,7 @@ export default class CalculatorStep1 extends React.Component {
         }, 500)
     }
 
+
     handleProjectPeriod(event, index, value) {
         this.setState({
             projectPeriod: value
@@ -69,6 +61,7 @@ export default class CalculatorStep1 extends React.Component {
             store.dispatch(updateProjectInfo(this.state))
         }, 500)
     }
+    
 
     handleWantToStart(event, value) {
         this.setState({
@@ -128,11 +121,6 @@ export default class CalculatorStep1 extends React.Component {
                         defaultValue={1}
                         disableFocusRipple={true}
                         className="custom-slider"
-                        // label={
-                        //     <div style={sliderStyles.labelStyleInner}>
-                        //         {this.state.peopleInTeam + 'ppl'}
-                        //     </div>
-                        // }
                     />
 
                     <div className="slider-vals-wrp flex">

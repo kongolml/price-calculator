@@ -12,5 +12,5 @@ ReactDOM.render(
     <Provider store={store}>
         <CalculatorWrapper />
     </Provider>,
-    document.getElementById('root')
+    document.getElementById('price-calculator-root')
 )

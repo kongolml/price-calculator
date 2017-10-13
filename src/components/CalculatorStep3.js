@@ -18,6 +18,7 @@ export default class CalculatorStep3 extends React.Component {
         }
     }
 
+
     componentWillMount() {
         if( store.getState() ) {
             var email
@@ -33,6 +34,7 @@ export default class CalculatorStep3 extends React.Component {
             })
         }
     }
+    
 
     handleClientEmail(event, newValue) {
         this.setState({
